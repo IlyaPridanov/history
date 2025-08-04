@@ -1,17 +1,11 @@
 extends pug/layout.pug
 block variables
-  - const title = 'Краски'
-  -
-    const arrLink = [
-      "Продукты",
-      "Краски",
-    ]
+  - const title = 'Исторические даты'
 
 include pug/mixin.pug
 
 block content
   main.main
-    h1.visually-hidden Краски
-    +breadcrumbs(arrLink)
+    h1.visually-hidden Исторические даты
     include pug/blocks/main-page/main-slider.pug
     include pug/blocks/main-page/catalog-block.pug

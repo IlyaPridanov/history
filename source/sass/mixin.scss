@@ -59,7 +59,7 @@
 }
 
 @mixin font($size , $weight ,$height, $color) {
-  font-family: variables.$inter;
+  font-family: variables.$ptsans;
   font-size: $size ;
   font-weight: $weight;
   line-height: $height;
