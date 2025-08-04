@@ -1,0 +1,80 @@
+@use "../mixin";
+@use "../variables";
+
+.breadcrumbs {
+  position: relative;
+}
+
+.breadcrumbs__list {
+  position: absolute;
+  z-index: 2;
+  top: 28px;
+  left: 24px;
+
+  @include mixin.list();
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: variables.$tablet-width) {
+    position: static;
+    flex-wrap: wrap;
+    margin: 0 0 44px;
+    padding-top: 12px;
+    width: 100%;
+
+    border-top: 1px solid rgba(variables.$black,0.06);
+  }
+}
+
+.breadcrumbs__item {
+  position: relative;
+
+  margin-right: 23px;
+
+  @media screen and (max-width: variables.$tablet-width) {
+    margin-right: 20px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 55%;
+    right: -11px;
+
+    display: block;
+    width: 3px;
+    height: 3px;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+    background-color: variables.$grey-2;
+  }
+
+  &:last-child {
+    margin-right: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  & a {
+    @include mixin.hover();
+    @include mixin.font(10px,400,1,variables.$grey-2);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+
+    @media screen and (max-width: variables.$tablet-width) {
+      letter-spacing: 0.05em;
+    }
+  }
+
+  & span {
+    @include mixin.font(10px,400,1,variables.$grey-2);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+  }
+}
+

@@ -1,0 +1,138 @@
+@use "../../mixin";
+@use "../../variables";
+
+.main-slider {
+  position: relative;
+  margin-bottom: 70px;
+
+  @media screen and (max-width: variables.$tablet-width) {
+    margin-bottom: 48px;
+  }
+
+  & .swiper-container {
+    @media screen and (max-width: variables.$tablet-width) {
+      display: none;
+    }
+  }
+}
+
+.main-slider__slide {
+  box-sizing: border-box;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.main-slider__btn {
+  @include mixin.btn();
+  @include mixin.center();
+  @include mixin.hover();
+
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+
+  & svg {
+    fill: none;
+  }
+
+  &.js-btn-next {
+    left: 83px;
+
+    @media screen and (max-width: variables.$desktop-width) {
+      left: 20px;
+    }
+  }
+
+  &.js-btn-prev {
+    right: 83px;
+
+    & svg {
+      transform: rotate(180deg);
+    }
+
+    @media screen and (max-width: variables.$desktop-width) {
+      right: 20px;
+    }
+  }
+
+  @media screen and (max-width: variables.$tablet-width) {
+    display: none;
+  }
+}
+
+.main-slider__pagination {
+  position: absolute;
+  z-index: 2;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+
+  background-color: rgba(variables.$black,0.4);
+  border-radius: 16px;
+
+  & .swiper-pagination-bullet {
+    cursor: pointer;
+    width: 6px;
+    height: 6px;
+
+    border: none;
+    background-color: rgba(variables.$white,0.6);
+
+    &-active {
+      background-color: rgba(variables.$white,1);
+    }
+  }
+
+  @media screen and (max-width: variables.$tablet-width) {
+    display: none;
+  }
+}
+
+.main-slider__container {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include mixin.center();
+  flex-direction: column;
+  gap: 18px;
+  width: fit-content;
+
+  @media screen and (max-width: variables.$tablet-width) {
+    position: static;
+
+    display: block;
+    width: 100%;
+    transform: initial;
+  }
+}
+
+.main-slider__text {
+  margin: 0;
+  width: 100%;
+  max-width: 472px;
+
+  @include mixin.font(16px,500,1.3,variables.$white);
+  text-align: center;
+
+  @media screen and (max-width: variables.$tablet-width) {
+    display: none;
+  }
+}
+
+.main-slider__caption {
+  @media screen and (max-width: variables.$tablet-width) {
+    color: variables.$black;
+  }
+}

@@ -1,0 +1,71 @@
+@use "variables";
+
+@mixin hover() {
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
+
+    opacity: 0.6;
+  }
+}
+
+@mixin hover-text() {
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
+
+    text-decoration: underline;
+  }
+}
+
+@mixin no-hover() {
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: initial;
+
+    opacity: 1;
+  }
+}
+
+@mixin list() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin btn() {
+  outline: none;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+
+  outline: none;
+}
+
+@mixin after() {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+@mixin center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin font($size , $weight ,$height, $color) {
+  font-family: variables.$inter;
+  font-size: $size ;
+  font-weight: $weight;
+  line-height: $height;
+  color: $color;
+}
+
+
+
+

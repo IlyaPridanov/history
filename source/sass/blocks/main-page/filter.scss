@@ -1,0 +1,139 @@
+@use "../../mixin";
+@use "../../variables";
+
+.filter {
+  padding-right: 146px;
+
+  @media screen and (max-width: variables.$big-desktop-width) {
+    padding-right: 7.6vw;
+  }
+
+  & label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  & input:checked + .filter__toggle {
+    background-color: variables.$green;
+    transition: variables.$transition;
+
+    &::after {
+      left: auto;
+      right: 7px;
+
+      transition: variables.$transition;
+    }
+  }
+}
+
+.filter__caption {
+  display: none;
+
+  @media screen and (max-width: variables.$tablet-width) {
+    display: block;
+    @include mixin.hover();
+  }
+}
+
+.filter__popup {
+  @media screen and (max-width: variables.$tablet-width) {
+    display: flex;
+
+    z-index: 1;
+    position: fixed;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(variables.$black, 0.6);
+    transform: translateY(120%);
+    transition: variables.$transition;
+  }
+
+  &.active {
+    @media screen and (max-width: variables.$tablet-width) {
+      // display: flex;
+      transform: translateY(0);
+      transition: variables.$transition;
+    }
+  }
+}
+
+.filter__block {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media screen and (max-width: variables.$tablet-width) {
+    padding: 54px 24px 114px;
+
+    background-color: variables.$white;
+    border-radius: 24px 24px 0 0;
+  }
+
+  &::after {
+    @media screen and (max-width: variables.$tablet-width) {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 28px;
+      height: 4px;
+
+      background-color: rgba(variables.$black, 0.6);
+      border-radius: 40px;
+    }
+  }
+}
+
+.filter__name {
+  @include mixin.font(12px, 400, 1, variables.$black);
+  text-transform: uppercase;
+
+  @media screen and (max-width: variables.$tablet-width) {
+    letter-spacing: 0.06em;
+  }
+}
+
+.filter__toggle {
+  position: relative;
+
+  display: block;
+  width: 36px;
+  height: 22px;
+
+  border-radius: 40px;
+  background-color: variables.$grey;
+  transition: variables.$transition;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    left: 7px;
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: variables.$transition;
+
+    display: block;
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background-color: variables.$black;
+  }
+}

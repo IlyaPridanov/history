@@ -1,0 +1,24 @@
+@use "../variables";
+
+
+@media screen and (max-width: variables.$tablet-width) {
+  .js-block {
+      position: absolute;
+      z-index: 2;
+      top: 99.1%;
+      left: 0;
+      width: 100%;
+
+      transition: all 0.2s ease-in;
+      transform-origin: 0 0;
+
+      opacity: 1;
+  }
+
+  .js-block-inactive {
+      transform: scaleY(0);
+      transform-origin: 0 0;
+      opacity: 0;
+      transition: all 0.2s ease-in;
+  }
+}

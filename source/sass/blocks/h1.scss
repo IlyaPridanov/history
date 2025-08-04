@@ -1,0 +1,13 @@
+@use "../mixin";
+@use "../variables";
+
+.h1 {
+  margin: 0;
+
+  @include mixin.font(72px,400,1,variables.$white);
+
+  @media screen and (max-width: variables.$tablet-width) {
+    font-size: 36px;
+    letter-spacing: -0.04em;
+  }
+}

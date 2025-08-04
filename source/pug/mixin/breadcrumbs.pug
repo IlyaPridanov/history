@@ -1,0 +1,12 @@
+mixin breadcrumbs(arrLink)
+  .container.breadcrumbs
+    ul.breadcrumbs__list
+      li.breadcrumbs__item
+        a(href="/") Главная
+      each item,index in arrLink
+        if index === (arrLink.length-1)
+          li.breadcrumbs__item
+            span=item
+        else
+          li.breadcrumbs__item
+            a(href="/")=item

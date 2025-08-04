@@ -1,0 +1,15 @@
+.basket.header__basket
+  .basket__block
+    .basket__top-row
+      h2.h2.basket__caption Корзина
+      button(type="button").basket__close
+        +svg("close",24,24)
+    .basket__reset-row
+      span.basket__sum 0 товаров
+      button(type="button").basket__reset очистить список
+    ul.basket__list
+    .basket__result-row
+      .basket__result
+        |Итого
+        span 0
+      button(type="button").basket__order Оформить заказ

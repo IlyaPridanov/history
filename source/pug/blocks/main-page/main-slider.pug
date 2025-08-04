@@ -1,0 +1,14 @@
+section.main-slider.slider
+  .swiper-container
+    .swiper-wrapper
+      - for(let i=0;i<6;i++)
+        .swiper-slide.main-slider__slide
+          +img("main-slider","jpg","1920","560")
+  .container.main-slider__container
+    h1.h1.main-slider__caption Краски
+    p.main-slider__text Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!
+  button.main-slider__btn.js-btn-next(type="button")
+    +svg("left",20,40)
+  button.main-slider__btn.js-btn-prev(type="button")
+    +svg("left",20,40)
+  .main-slider__pagination.swiper-pagination
