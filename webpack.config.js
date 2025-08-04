@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
   return {
     entry: {
       main: [
-        './source/js/script.js',
+        './source/js/script.ts',
         ...glob.sync('./source/img/icon-*.svg') // Автоматический импорт иконок
       ],
       styles: './source/sass/style.scss'
@@ -91,6 +91,11 @@ module.exports = (env, argv) => {
           ]
         },
         {
+          test: /\.ts$/,
+          exclude: /node_modules/,
+          use: 'ts-loader',
+        },
+        {
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
@@ -161,6 +166,9 @@ module.exports = (env, argv) => {
           },
         },
       ],
+    },
+    resolve: {
+      extensions: ['.ts', '.js'],
     },
     plugins: [
       new CleanWebpackPlugin(),

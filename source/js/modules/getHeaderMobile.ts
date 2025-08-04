@@ -1,10 +1,10 @@
-export default function getHeaderMobile () {
-    const btn = document.querySelectorAll('.js-btn');
-    const block = document.querySelectorAll('.js-block');
+export default function getHeaderMobile(): void {
+    const btn = document.querySelectorAll<HTMLButtonElement | HTMLElement>('.js-btn');
+    const block = document.querySelectorAll<HTMLElement>('.js-block');
 
     btn.forEach(function (btnItem) {
-        btnItem.addEventListener('click' , function() {
-            let t = this;
+        btnItem.addEventListener('click', function (this: HTMLElement) {
+            const t = this;
             btn.forEach(function (item) {
                 if (!(item === t)) {
                     item.classList.remove('js-btn-active');
@@ -12,7 +12,7 @@ export default function getHeaderMobile () {
             });
             btnItem.classList.toggle('js-btn-active');
             block.forEach(function (blockItem) {
-                if (btnItem.dataset.block === blockItem.dataset.block) {
+                if ((btnItem as HTMLElement).dataset.block === blockItem.dataset.block) {
                     blockItem.classList.toggle('js-block-inactive');
                 } else {
                     blockItem.classList.add('js-block-inactive');
@@ -20,5 +20,4 @@ export default function getHeaderMobile () {
             });
         });
     });
-};
-
+}
