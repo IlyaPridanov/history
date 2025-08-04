@@ -120,9 +120,7 @@ module.exports = (env, argv) => {
             {
               loader: 'svg-sprite-loader',
               options: {
-                extract: true,
-                spriteFilename: 'sprite.svg',
-                publicPath: '/img/',
+                // extract: false, // inline mode
                 symbolId: filePath => {
                   const name = path.basename(filePath, '.svg');
                   return name.replace('icon-', '');
