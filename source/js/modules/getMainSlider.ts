@@ -44,14 +44,12 @@ export default function getMainSlider(): void {
                     prevEl: prev,
                 },
                 // updateOnWindowResize: false,
-                // pagination отключена, используем кастомную
-                // pagination: false,
                 breakpoints: breakpoints,
             });
         }
     };
 
-    sliderContainers.forEach(function (currentValue) {
+    sliderContainers.forEach(function (currentValue): void  {
         const swiper = getBlockSlider(currentValue);
         if (!swiper) return;
         const pagination = currentValue.querySelector('.main-slider__pagination');
