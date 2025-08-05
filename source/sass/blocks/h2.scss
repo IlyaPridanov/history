@@ -4,6 +4,6 @@
 .h2 {
   margin: 0;
 
-  @include mixin.font(30px,500,1,variables.$black);
+  @include mixin.font-pt(30px,500,1,variables.$black);
   letter-spacing: -0.03em;
 }

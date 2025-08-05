@@ -29,24 +29,24 @@
   padding-bottom: 14px;
 
   &:nth-child(n+6) {
-    border-top: 1px solid rgba(variables.$black-2, 0.1);
+    border-top: 1px solid rgba(variables.$pink, 0.1);
   }
 
   @media screen and (max-width: variables.$desktop-width) {
     &:nth-child(n+5) {
-      border-top: 1px solid rgba(variables.$black-2, 0.1);
+      border-top: 1px solid rgba(variables.$pink, 0.1);
     }
   }
 
   @media screen and (max-width: variables.$tablet-width) {
     &:nth-child(n+4) {
-      border-top: 1px solid rgba(variables.$black-2, 0.1);
+      border-top: 1px solid rgba(variables.$pink, 0.1);
     }
   }
 
   @media screen and (max-width: variables.$min-tablet-width) {
     &:nth-child(n+3) {
-      border-top: 1px solid rgba(variables.$black-2, 0.1);
+      border-top: 1px solid rgba(variables.$pink, 0.1);
     }
   }
 
@@ -88,8 +88,8 @@
     width: 80px;
     height: 32px;
 
-    @include mixin.font(16px,600,1,variables.$black);
-    background-color: variables.$green;
+    @include mixin.font-pt(16px,600,1,variables.$black);
+    background-color: variables.$text-color;
     border-radius: 8px;
 
     opacity: 0;
@@ -106,14 +106,14 @@
   & p {
     margin: 0;
 
-    @include mixin.font(16px,600,1,variables.$black);
+    @include mixin.font-pt(16px,600,1,variables.$black);
   }
 }
 
 .products__name {
   display: block;
 
-  @include mixin.font(16px,300,1,variables.$black);
+  @include mixin.font-pt(16px,300,1,variables.$black);
   letter-spacing: 0.03em;
 
   @media screen and (max-width: variables.$tablet-width) {

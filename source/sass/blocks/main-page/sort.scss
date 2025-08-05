@@ -5,7 +5,7 @@
   position: relative;
 
   & input:checked + .sort__name {
-    background-color: variables.$green;
+    background-color: variables.$text-color;
   }
 }
 

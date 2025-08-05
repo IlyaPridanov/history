@@ -16,7 +16,7 @@
   }
 
   & input:checked + .filter__toggle {
-    background-color: variables.$green;
+    background-color: variables.$text-color;
     transition: variables.$transition;
 
     &::after {
@@ -100,7 +100,7 @@
 }
 
 .filter__name {
-  @include mixin.font(12px, 400, 1, variables.$black);
+  @include mixin.font-pt(12px, 400, 1, variables.$black);
   text-transform: uppercase;
 
   @media screen and (max-width: variables.$tablet-width) {
@@ -116,7 +116,7 @@
   height: 22px;
 
   border-radius: 40px;
-  background-color: variables.$grey;
+  background-color: variables.$text-color;
   transition: variables.$transition;
 
   &::after {

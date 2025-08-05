@@ -12,7 +12,7 @@
   width: 100%;
   height: 100%;
 
-  background-color: rgba(variables.$black-2,0.7);
+  background-color: rgba(variables.$pink,0.7);
   transform: translateX(120%);
   transition: variables.$transition;
 
@@ -48,7 +48,7 @@
   width: 48px;
   height: 48px;
 
-  border: 1px solid rgba(variables.$black-2,0.1);
+  border: 1px solid rgba(variables.$pink,0.1);
   border-radius: 50%;
 
   @media screen and (max-width: variables.$mobile-width) {
@@ -69,7 +69,7 @@
   justify-content: space-between;
 
   & span {
-    @include mixin.font(14px,400,1,variables.$black);
+    @include mixin.font-pt(14px,400,1,variables.$black);
   }
 }
 
@@ -77,7 +77,7 @@
   cursor: pointer;
   @include mixin.btn();
 
-  @include mixin.font(14px,300,1,rgba(variables.$black-2,0.4));
+  @include mixin.font-pt(14px,300,1,rgba(variables.$pink,0.4));
 
   &:hover {
     text-decoration: underline;
@@ -98,7 +98,7 @@
   gap: 8px;
   padding: 5px 0;
 
-  border-top: 1px solid rgba(variables.$black-2,0.1);
+  border-top: 1px solid rgba(variables.$pink,0.1);
 
   @media screen and (max-width: variables.$mobile-width) {
     display: grid;
@@ -178,9 +178,9 @@
   width: 40px;
   height: 24px;
 
-  @include mixin.font(18px,400,1,variables.$black);
+  @include mixin.font-pt(18px,400,1,variables.$black);
 
-  background-color: variables.$grey;
+  background-color: variables.$text-color;
   border-radius: 4px;
 }
 
@@ -212,7 +212,7 @@
   display: block;
   margin-bottom: 17px;
 
-  @include mixin.font(16px, 300, 1, variables.$black);
+  @include mixin.font-pt(16px, 300, 1, variables.$black);
   letter-spacing: 0.04em;
 
   @media screen and (max-width: variables.$mobile-width) {
@@ -236,12 +236,12 @@
 }
 
 .basket__result {
-  @include mixin.font(16px, 400, 1, variables.$black);
+  @include mixin.font-pt(16px, 400, 1, variables.$black);
 
   & span {
     display: block;
     margin-top: 4px;
-    @include mixin.font(30px, 500, 1, variables.$black);
+    @include mixin.font-pt(30px, 500, 1, variables.$black);
   }
 }
 
@@ -255,11 +255,11 @@
   border-radius: 4px;
 
 
-  @include mixin.font(12px, 500, 1, variables.$black);
+  @include mixin.font-pt(12px, 500, 1, variables.$black);
   text-transform: uppercase;
   text-align: center;
 
-  background-color: variables.$green;
+  background-color: variables.$text-color;
 }
 
 .basket__item-sum {

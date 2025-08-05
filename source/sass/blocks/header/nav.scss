@@ -31,7 +31,7 @@
 
 .nav__link {
   @include mixin.hover();
-  @include mixin.font(14px,400,1,variables.$black);
+  @include mixin.font-pt(14px,400,1,variables.$black);
   text-transform: uppercase;
   letter-spacing: 0.01em;
 }

@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
 
 export default function getSlider(): void {
     const sliderContainers = document.querySelectorAll<HTMLElement>('.slider');
@@ -6,8 +7,9 @@ export default function getSlider(): void {
     const getBlockSlider = function (slider: HTMLElement): Swiper | undefined {
         const container = slider.querySelector('.swiper-container') as HTMLElement | null;
         const slides = slider.querySelectorAll('.swiper-slide');
-        const prev = slider.querySelector('.js-btn-next') as HTMLElement | null;
-        const next = slider.querySelector('.js-btn-prev') as HTMLElement | null;
+        const prev = slider.querySelector('.js-btn-prev') as HTMLElement | null;
+        const next = slider.querySelector('.js-btn-next') as HTMLElement | null;
+        console.log(prev);
         const pagination = slider.querySelector('.swiper-pagination') as HTMLElement | null;
         const loop = true;
         const allowTouchMove = true;
@@ -29,6 +31,7 @@ export default function getSlider(): void {
         };
         if (slides.length >= 2 && container) {
             return new Swiper(container, {
+                modules: [Navigation, Pagination],
                 direction: direction,
                 allowTouchMove: allowTouchMove,
                 loop: loop,

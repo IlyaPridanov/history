@@ -1,11 +1,13 @@
 $ptsans: "PTSans", "Arial", sans-serif;
 $bebas: "BebasNeue", "Arial", sans-serif;
 
-$black: #1F2020;
-$black-2: #000000;
-$text-color: $black;
-
+$black: #000000;
+$pink: #EF5DA8;
+$blue: #5D5FEF;
+$text-color: #42567A;
 $white: #ffffff;
+
+$caption-gradient: linear-gradient(to bottom, #3877EE, #EF5DA8 80%, #EF5DA8);
 
 $transparent: rgba(256,256,256,0);
 
@@ -19,11 +21,4 @@ $mobile-width: 576px;
 
 $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
-
-$blue: #1c3b73;
-
-$grey: #F2F2F2;
-$grey-2: #C4C4C4;
-
-$green: #7BB899;
 

@@ -58,7 +58,7 @@
   justify-content: center;
 }
 
-@mixin font($size , $weight ,$height, $color) {
+@mixin font-pt($size , $weight ,$height, $color) {
   font-family: variables.$ptsans;
   font-size: $size ;
   font-weight: $weight;

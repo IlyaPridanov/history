@@ -2,9 +2,26 @@
 @use "../variables";
 
 .h1 {
+  position: relative;
   margin: 0;
+  padding-left: 78px;
+  width: 353px;
+  max-width: 100%;
 
-  @include mixin.font(72px,400,1,variables.$white);
+  @include mixin.font-pt(56px,700,1.2,variables.$text-color);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    height: 100%;
+    width: 5px;
+
+    background-image: variables.$caption-gradient;
+  }
 
   @media screen and (max-width: variables.$tablet-width) {
     font-size: 36px;
