@@ -17,15 +17,15 @@ export default function getSlider(): void {
         const autoHeight = true;
         const breakpoints = {
             320: {
-                slidesPerView: 1,
+                slidesPerView: 1.5,
                 spaceBetween: 7,
             },
             768: {
-                slidesPerView: 1,
+                slidesPerView: 3,
                 spaceBetween: 15,
             },
             1200: {
-                slidesPerView: 1,
+                slidesPerView: 3.2,
                 spaceBetween: 24,
             },
         };

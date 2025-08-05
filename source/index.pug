@@ -6,6 +6,7 @@ include pug/mixin.pug
 
 block content
   main.main
-    .container
-      h1.h1 Исторические даты
-      include pug/blocks/main-slider.pug
+    .main__container
+      .main__min-container
+        h1.h1.main__caption=title
+        include pug/blocks/main-slider.pug

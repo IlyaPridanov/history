@@ -1,0 +1,48 @@
+@use "../variables";
+
+.main__container {
+  margin: 0 auto;
+  max-width: 1600px;
+  width: 100%;
+  padding-left: 160px;
+}
+
+.main__min-container {
+  position: relative;
+  padding-left: 104px;
+  padding-right: 40px;
+  min-height: 100vh;
+
+  border-left: 1px solid rgba(variables.$text-color, 0.1);
+  border-right: 1px solid rgba(variables.$text-color, 0.1);
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: block;
+    width: 1px;
+    height: 100%;
+
+    background-color: rgba(variables.$text-color, 0.1);
+  }
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: block;
+    width: 100%;
+    height: 1px;
+
+    background-color: rgba(variables.$text-color, 0.1);
+  }
+}

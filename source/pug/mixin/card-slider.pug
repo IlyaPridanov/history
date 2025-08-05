@@ -1,0 +1,10 @@
+mixin card-slider(props)
+  .card-slider.slider&attributes(attributes)
+    .swiper-container
+      .swiper-wrapper
+        each item in props
+          +card(item).swiper-slide.card-slider__slide
+    button.card-slider__btn.js-btn-next(type="button")
+      +svg("min-left",5,10)
+    button.card-slider__btn.js-btn-prev(type="button")
+      +svg("min-right",5,10)

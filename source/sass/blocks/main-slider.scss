@@ -10,6 +10,7 @@
   }
 
   & .swiper-container {
+    overflow: hidden;
     @media screen and (max-width: variables.$tablet-width) {
       display: none;
     }
