@@ -193,20 +193,15 @@
   ]
 
 section.main-slider
-  each item in mock
-    +card-slider(item.arr)
-
-//- section.main-slider.slider
-//-   .swiper-container
-//-     .swiper-wrapper
-//-       - for(let i=0;i<6;i++)
-//-         .swiper-slide.main-slider__slide
-//-           +img("main-slider","jpg","1920","560")
-//-   .container.main-slider__container
-//-     h1.h1.main-slider__caption Краски
-//-     p.main-slider__text Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!
-//-   button.main-slider__btn.js-btn-next(type="button")
-//-     +svg("left",20,40)
-//-   button.main-slider__btn.js-btn-prev(type="button")
-//-     +svg("left",20,40)
-//-   .main-slider__pagination.swiper-pagination
+  h2.h2.main-slider__caption
+    span=mock[0].yearStart
+    span=mock[0].yearEnd
+  .swiper-container.main-slider__swiper-container
+    .swiper-wrapper.main-slider__swiper-wrapper
+      each item in mock
+        +card-slider(item.arr).swiper-slide.main-slider__swiper-slide(data-year-start=item.yearStart, data-year-end=item.yearEnd)
+  button.main-slider__btn-next(type="button")
+    +svg("left",7,13)
+  button.main-slider__btn-prev(type="button")
+    +svg("right",7,13)
+  .main-slider__pagination.swiper-pagination
