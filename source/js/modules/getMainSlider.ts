@@ -9,7 +9,6 @@ export default function getMainSlider(): void {
         const slides = slider.querySelectorAll('.main-slider__swiper-slide');
         const prev = slider.querySelector('.main-slider__btn-next') as HTMLElement | null;
         const next = slider.querySelector('.main-slider__btn-prev') as HTMLElement | null;
-        const pagination = slider.querySelector('.swiper-pagination') as HTMLElement | null;
         const loop = false;
         const allowTouchMove = false;
         const direction = 'horizontal';
@@ -45,16 +44,36 @@ export default function getMainSlider(): void {
                     prevEl: prev,
                 },
                 // updateOnWindowResize: false,
-                pagination: {
-                    el: pagination,
-                    clickable: true,
-                },
+                // pagination отключена, используем кастомную
+                // pagination: false,
                 breakpoints: breakpoints,
             });
         }
     };
 
     sliderContainers.forEach(function (currentValue) {
-        getBlockSlider(currentValue);
+        const swiper = getBlockSlider(currentValue);
+        if (!swiper) return;
+        const pagination = currentValue.querySelector('.main-slider__pagination');
+        if (!pagination) return;
+        const bullets = Array.from(pagination.querySelectorAll('.main-slider__pagination-bullet'));
+        // Функция для обновления активного буллета
+        function updateActiveBullet(index: number) {
+            bullets.forEach((bullet, i) => {
+                bullet.classList.toggle('is-active', i === index);
+            });
+        }
+        // Изначально активный
+        updateActiveBullet(swiper.activeIndex);
+        // При смене слайда
+        swiper.on('slideChange', () => {
+            updateActiveBullet(swiper.activeIndex);
+        });
+        // Клик по буллету
+        bullets.forEach((bullet, i) => {
+            bullet.addEventListener('click', () => {
+                swiper.slideTo(i);
+            });
+        });
     });
 }
