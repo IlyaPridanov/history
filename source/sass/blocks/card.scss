@@ -1,0 +1,14 @@
+@use "../mixin";
+@use "../variables";
+
+.card {
+  & h3 {
+    margin-bottom: 15px;
+  }
+
+  & p {
+    margin: 0;
+
+    @include mixin.font-pt(20px,400,1.5,variables.$text-color);
+  }
+}

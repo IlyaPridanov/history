@@ -4,7 +4,5 @@
 .h3 {
   margin: 0;
 
-  @include mixin.font-pt(12px,500,1,variables.$black);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  @include mixin.font-bebas(25px,400,1.2,variables.$blue);
 }

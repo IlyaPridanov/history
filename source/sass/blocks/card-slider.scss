@@ -1,0 +1,36 @@
+@use "../mixin";
+@use "../variables";
+
+.card-slider {
+  position: relative;
+}
+
+.card-slider__btn {
+  cursor: pointer;
+  @include mixin.btn();
+  @include mixin.center();
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+
+  border-radius: 50%;
+  background-color: variables.$white;
+  box-shadow: variables.$card-slider-boc-shadow;
+
+  &.swiper-button-disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.card-slider__btn.js-btn-next {
+  right: -50px;
+}
+
+.card-slider__btn.js-btn-prev {
+  left: -50px;
+}

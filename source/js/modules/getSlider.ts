@@ -9,12 +9,11 @@ export default function getSlider(): void {
         const slides = slider.querySelectorAll('.swiper-slide');
         const prev = slider.querySelector('.js-btn-prev') as HTMLElement | null;
         const next = slider.querySelector('.js-btn-next') as HTMLElement | null;
-        console.log(prev);
         const pagination = slider.querySelector('.swiper-pagination') as HTMLElement | null;
-        const loop = true;
+        const loop = false;
         const allowTouchMove = true;
         const direction = 'horizontal';
-        const autoHeight = true;
+        const autoHeight = false;
         const breakpoints = {
             320: {
                 slidesPerView: 1.5,
@@ -26,7 +25,7 @@ export default function getSlider(): void {
             },
             1200: {
                 slidesPerView: 3.2,
-                spaceBetween: 24,
+                spaceBetween: 80,
             },
         };
         if (slides.length >= 2 && container) {

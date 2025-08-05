@@ -66,6 +66,14 @@
   color: $color;
 }
 
+@mixin font-bebas($size , $weight ,$height, $color) {
+  font-family: variables.$bebas;
+  font-size: $size ;
+  font-weight: $weight;
+  line-height: $height;
+  color: $color;
+}
+
 
 
 
