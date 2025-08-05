@@ -1,9 +1,0 @@
-@use "../mixin";
-@use "../variables";
-
-.h3 {
-  margin: 0;
-
-  @include mixin.font-pt(12px,500,1,variables.$black);
-  letter-spacing: 0.06em;
-}

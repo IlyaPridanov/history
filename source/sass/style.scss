@@ -13,22 +13,5 @@
 @use "blocks/h1.scss";
 @use "blocks/h2.scss";
 @use "blocks/h3.scss";
-@use "blocks/h4.scss";
 @use "blocks/js-block.scss";
-
-@use "blocks/hamburger.scss";
-
-@use "blocks/header/header.scss";
-@use "blocks/header/nav.scss";
-@use "blocks/header/basket.scss";
-
-@use "blocks/footer.scss";
-
-@use "blocks/breadcrumbs.scss";
-
-@use "blocks/main-page/main-slider.scss";
-@use "blocks/main-page/products.scss";
-@use "blocks/main-page/catalog-block.scss";
-@use "blocks/main-page/filter.scss";
-@use "blocks/main-page/sort.scss";
-
+@use "blocks/main-slider.scss";
