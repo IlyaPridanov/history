@@ -54,7 +54,7 @@ export default function getMainSlider(): void {
         if (!swiper) return;
         const pagination = currentValue.querySelector('.main-slider__pagination');
         if (!pagination) return;
-        const bullets = Array.from(pagination.querySelectorAll('.main-slider__pagination-bullet'));
+        const bullets = Array.from(pagination.querySelectorAll('.main-slider__bullet'));
         // Функция для обновления активного буллета
         function updateActiveBullet(index: number) {
             bullets.forEach((bullet, i) => {

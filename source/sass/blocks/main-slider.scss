@@ -45,6 +45,7 @@
 
 .main-slider__pagination {
   position: absolute;
+  z-index: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -55,10 +56,10 @@
   border-radius: 50%;
 }
 
-.main-slider__bullet {
-  position: absolute;
-  display: block;
-}
+// .main-slider__bullet {
+//   position: absolute;
+//   display: block;
+// }
 
 .main-slider__current {
   @include mixin.center();
