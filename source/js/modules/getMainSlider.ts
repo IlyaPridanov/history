@@ -101,20 +101,32 @@ export default function getMainSlider(): void {
                 }
             });
         }
+        // Находим элементы для номера и суммы слайдов
+        const valueEl = currentValue.querySelector('.main-slider__pagination-value') as HTMLElement | null;
+        const sumEl = currentValue.querySelector('.main-slider__pagination-sum') as HTMLElement | null;
+        // Функция для обновления номера и суммы
+        function updateSliderNumbers() {
+            if (!swiper) return;
+            if (valueEl) valueEl.textContent = String(swiper.activeIndex + 1).padStart(2, '0');
+            if (sumEl) sumEl.textContent = String(swiper.slides.length).padStart(2, '0');
+        }
         // Изначально активный
         updateActiveBullet(swiper.activeIndex);
         setBulletsRotation(0); // выставляем правильный угол для всех буллетов при загрузке
         rotatePaginationTo(swiper.activeIndex);
+        updateSliderNumbers();
         // При смене слайда
         swiper.on('slideChange', () => {
             updateActiveBullet(swiper.activeIndex);
             rotatePaginationTo(swiper.activeIndex);
+            updateSliderNumbers();
         });
         // Клик по буллету
         bullets.forEach((bullet, i) => {
             bullet.addEventListener('click', () => {
                 swiper.slideTo(i);
                 rotatePaginationTo(i);
+                updateSliderNumbers();
             });
         });
     });
