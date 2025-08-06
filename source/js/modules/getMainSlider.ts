@@ -30,7 +30,6 @@ export default function getMainSlider(): void {
                     nextEl: next,
                     prevEl: prev,
                 },
-                // updateOnWindowResize: false,
                 slidesPerView: 1,
                 spaceBetween: 0,
             });

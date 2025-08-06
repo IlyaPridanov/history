@@ -40,7 +40,6 @@ export default function getSlider(): void {
                     nextEl: next,
                     prevEl: prev,
                 },
-                // updateOnWindowResize: false,
                 pagination: {
                     el: pagination,
                     clickable: true,
