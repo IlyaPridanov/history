@@ -35,6 +35,7 @@ export default function getSlider(): void {
                 allowTouchMove: allowTouchMove,
                 loop: loop,
                 autoHeight: autoHeight,
+                grabCursor: true,
                 navigation: {
                     nextEl: next,
                     prevEl: prev,
