@@ -104,29 +104,59 @@ export default function getMainSlider(): void {
         // Находим элементы для номера и суммы слайдов
         const valueEl = currentValue.querySelector('.main-slider__pagination-value') as HTMLElement | null;
         const sumEl = currentValue.querySelector('.main-slider__pagination-sum') as HTMLElement | null;
-        // Функция для обновления номера и суммы
-        function updateSliderNumbers() {
+        // Находим элементы для дат
+        const captionStartEl = currentValue.querySelector('.main-slider__caption-start') as HTMLElement | null;
+        const captionEndEl = currentValue.querySelector('.main-slider__caption-end') as HTMLElement | null;
+
+        // Анимация изменения числа
+        function animateNumberChange(el: HTMLElement | null, to: number) {
+            if (!el) return;
+            let from = parseInt(el.textContent || '0', 10);
+            if (isNaN(from)) from = to;
+            if (from === to) return;
+            const step = from < to ? 1 : -1;
+            const duration = 300; // ms
+            const totalSteps = Math.abs(to - from);
+            const interval = totalSteps ? Math.max(duration / totalSteps, 20) : duration;
+            let current = from;
+            const timer = setInterval(() => {
+                current += step;
+                el.textContent = String(current);
+                if (current === to) clearInterval(timer);
+            }, interval);
+        }
+
+        // Функция для обновления номера и суммы и дат
+        function updateSliderNumbersAndDates() {
             if (!swiper) return;
             if (valueEl) valueEl.textContent = String(swiper.activeIndex + 1).padStart(2, '0');
             if (sumEl) sumEl.textContent = String(swiper.slides.length).padStart(2, '0');
+            // Даты
+            const activeSlide = swiper.slides[swiper.activeIndex] as HTMLElement;
+            if (activeSlide) {
+                const yearStart = parseInt(activeSlide.getAttribute('data-year-start') || '', 10);
+                const yearEnd = parseInt(activeSlide.getAttribute('data-year-end') || '', 10);
+                if (!isNaN(yearStart)) animateNumberChange(captionStartEl, yearStart);
+                if (!isNaN(yearEnd)) animateNumberChange(captionEndEl, yearEnd);
+            }
         }
         // Изначально активный
         updateActiveBullet(swiper.activeIndex);
         setBulletsRotation(0); // выставляем правильный угол для всех буллетов при загрузке
         rotatePaginationTo(swiper.activeIndex);
-        updateSliderNumbers();
+        updateSliderNumbersAndDates();
         // При смене слайда
         swiper.on('slideChange', () => {
             updateActiveBullet(swiper.activeIndex);
             rotatePaginationTo(swiper.activeIndex);
-            updateSliderNumbers();
+            updateSliderNumbersAndDates();
         });
         // Клик по буллету
         bullets.forEach((bullet, i) => {
             bullet.addEventListener('click', () => {
                 swiper.slideTo(i);
                 rotatePaginationTo(i);
-                updateSliderNumbers();
+                updateSliderNumbersAndDates();
             });
         });
     });
