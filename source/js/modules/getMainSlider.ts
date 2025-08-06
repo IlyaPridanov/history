@@ -62,7 +62,7 @@ export default function getMainSlider(): void {
         const radius = baseRadius + bulletSize / 2; // теперь центр буллета будет на линии окружности
         const bulletCount = bullets.length;
         bullets.forEach((bullet, i) => {
-            const angle = (360 / bulletCount) * i - 90; // -90 чтобы первый был сверху
+            const angle = (360 / bulletCount) * i - 60;
             bullet.style.position = 'absolute';
             bullet.style.left = `${50 + radius * Math.cos(angle * Math.PI / 180)}%`;
             bullet.style.top = `${50 + radius * Math.sin(angle * Math.PI / 180)}%`;
