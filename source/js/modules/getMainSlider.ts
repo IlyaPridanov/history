@@ -14,20 +14,6 @@ export default function getMainSlider(): void {
         const allowTouchMove = false;
         const direction = 'horizontal';
         const autoHeight = false;
-        const breakpoints = {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-            },
-            1200: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-            },
-        };
         if (slides.length >= 2 && container) {
             return new Swiper(container, {
                 modules: [Navigation, Pagination, EffectFade],
@@ -39,13 +25,14 @@ export default function getMainSlider(): void {
                 fadeEffect: {
                     crossFade: true,
                 },
-                // speed: 800,
+                speed: 800,
                 navigation: {
                     nextEl: next,
                     prevEl: prev,
                 },
                 // updateOnWindowResize: false,
-                breakpoints: breakpoints,
+                slidesPerView: 1,
+                spaceBetween: 0,
             });
         }
     };

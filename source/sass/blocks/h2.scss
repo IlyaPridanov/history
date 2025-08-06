@@ -5,4 +5,8 @@
   margin: 0;
 
   @include mixin.font-pt(200px,700,1,variables.$text-color);
+
+  @media screen and (max-width: variables.$tablet-width) {
+    font-size: 16vw;
+  }
 }

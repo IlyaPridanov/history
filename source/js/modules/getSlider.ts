@@ -20,10 +20,10 @@ export default function getSlider(): void {
                 spaceBetween: 7,
             },
             768: {
-                slidesPerView: 3,
+                slidesPerView: 2,
                 spaceBetween: 15,
             },
-            1200: {
+            1024: {
                 slidesPerView: 3,
                 spaceBetween: 50,
             },
