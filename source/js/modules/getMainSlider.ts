@@ -64,13 +64,19 @@ export default function getMainSlider(): void {
         // Сохраним индивидуальные углы для каждого буллета
         const bulletAngles: number[] = [];
         bullets.forEach((bullet, i) => {
-            const angle = (360 / bulletCount) * i - 60; // -90 чтобы первый был сверху
+            const angle = (360 / bulletCount) * i - 60;
             bulletAngles[i] = angle;
             bullet.style.position = 'absolute';
             bullet.style.left = `${50 + radius * Math.cos(angle * Math.PI / 180)}%`;
             bullet.style.top = `${50 + radius * Math.sin(angle * Math.PI / 180)}%`;
-            bullet.style.transform = 'translate(-50%, -50%) rotate(' + (-angle) + 'deg)'; // начальный counter-rotate
+            bullet.style.transform = 'translate(-50%, -50%) rotate(0deg)'; // изначально без поворота
         });
+        // Функция для установки правильного угла всем буллетам
+        function setBulletsRotation(containerAngle: number) {
+            bullets.forEach((bullet, i) => {
+                bullet.style.transform = `translate(-50%, -50%) rotate(${-containerAngle}deg)`;
+            });
+        }
         // Функция для обновления активного буллета
         function updateActiveBullet(index: number) {
             bullets.forEach((bullet, i) => {
@@ -86,23 +92,18 @@ export default function getMainSlider(): void {
                 duration: 0.6,
                 ease: 'power2.inOut',
                 onUpdate: () => {
-                    // Получаем текущий угол вращения
                     const computed = gsap.getProperty(pagination, 'rotate') as number;
-                    bullets.forEach((bullet, i) => {
-                        bullet.style.transform = `translate(-50%, -50%) rotate(${-bulletAngles[i] - computed}deg)`;
-                    });
+                    setBulletsRotation(computed);
                 },
                 onComplete: () => {
-                    // Финальное выравнивание после анимации
                     const computed = gsap.getProperty(pagination, 'rotate') as number;
-                    bullets.forEach((bullet, i) => {
-                        bullet.style.transform = `translate(-50%, -50%) rotate(${-bulletAngles[i] - computed}deg)`;
-                    });
+                    setBulletsRotation(computed);
                 }
             });
         }
         // Изначально активный
         updateActiveBullet(swiper.activeIndex);
+        setBulletsRotation(0); // выставляем правильный угол для всех буллетов при загрузке
         rotatePaginationTo(swiper.activeIndex);
         // При смене слайда
         swiper.on('slideChange', () => {
