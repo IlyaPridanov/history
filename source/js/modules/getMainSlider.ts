@@ -38,6 +38,7 @@ export default function getMainSlider(): void {
     };
 
     sliderContainers.forEach(function (currentValue): void  {
+        const mediaQuery = window.matchMedia('(min-width: 769px)');
         const swiper = getBlockSlider(currentValue);
         if (!swiper) return;
         const pagination = currentValue.querySelector('.main-slider__pagination') as HTMLElement | null;
@@ -50,14 +51,23 @@ export default function getMainSlider(): void {
         const bulletCount = bullets.length;
 
         const bulletAngles: number[] = [];
-        bullets.forEach((bullet, i) => {
-            const angle = (360 / bulletCount) * i - 60;
-            bulletAngles[i] = angle;
-            bullet.style.position = 'absolute';
-            bullet.style.left = `${50 + radius * Math.cos(angle * Math.PI / 180)}%`;
-            bullet.style.top = `${50 + radius * Math.sin(angle * Math.PI / 180)}%`;
-            bullet.style.transform = 'translate(-50%, -50%) rotate(0deg)';
-        });
+
+        // Функция рапределения буллетов по кругу
+        function setbulletDistribution() {
+          bullets.forEach((bullet, i) => {
+              const angle = (360 / bulletCount) * i - 60;
+              bulletAngles[i] = angle;
+              bullet.style.position = 'absolute';
+              bullet.style.left = `${50 + radius * Math.cos(angle * Math.PI / 180)}%`;
+              bullet.style.top = `${50 + radius * Math.sin(angle * Math.PI / 180)}%`;
+              bullet.style.transform = 'translate(-50%, -50%) rotate(0deg)';
+          });
+        }
+
+        if (mediaQuery.matches) {
+          setbulletDistribution();
+        }
+
         // Функция для установки правильного угла всем буллетам
         function setBulletsRotation(containerAngle: number) {
             bullets.forEach((bullet) => {
@@ -127,20 +137,26 @@ export default function getMainSlider(): void {
         }
         // Изначально активный
         updateActiveBullet(swiper.activeIndex);
-        setBulletsRotation(0);
-        rotatePaginationTo(swiper.activeIndex);
+        if (mediaQuery.matches) {
+          setBulletsRotation(0);
+          rotatePaginationTo(swiper.activeIndex);
+        }
         updateSliderNumbersAndDates();
         // При смене слайда
         swiper.on('slideChange', () => {
             updateActiveBullet(swiper.activeIndex);
-            rotatePaginationTo(swiper.activeIndex);
+            if (mediaQuery.matches) {
+                rotatePaginationTo(swiper.activeIndex);
+            }
             updateSliderNumbersAndDates();
         });
         // Клик по буллету
         bullets.forEach((bullet, i) => {
             bullet.addEventListener('click', () => {
                 swiper.slideTo(i);
-                rotatePaginationTo(i);
+                if (mediaQuery.matches) {
+                    rotatePaginationTo(i);
+                }
                 updateSliderNumbersAndDates();
             });
         });
