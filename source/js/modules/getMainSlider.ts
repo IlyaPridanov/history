@@ -43,12 +43,12 @@ export default function getMainSlider(): void {
         const pagination = currentValue.querySelector('.main-slider__pagination') as HTMLElement | null;
         if (!pagination) return;
         const bullets = Array.from(pagination.querySelectorAll('.main-slider__bullet')) as HTMLElement[];
-        // Размещение буллетов по кругу
-        const baseRadius = 45; // базовый радиус окружности (px)
-        const bulletSize = 10; // диаметр буллета (px), скорректируйте под ваш дизайн
-        const radius = baseRadius + bulletSize / 2; // теперь центр буллета будет на линии окружности
+
+        const baseRadius = 45;
+        const bulletSize = 10;
+        const radius = baseRadius + bulletSize / 2;
         const bulletCount = bullets.length;
-        // Сохраним индивидуальные углы для каждого буллета
+
         const bulletAngles: number[] = [];
         bullets.forEach((bullet, i) => {
             const angle = (360 / bulletCount) * i - 60;
@@ -56,7 +56,7 @@ export default function getMainSlider(): void {
             bullet.style.position = 'absolute';
             bullet.style.left = `${50 + radius * Math.cos(angle * Math.PI / 180)}%`;
             bullet.style.top = `${50 + radius * Math.sin(angle * Math.PI / 180)}%`;
-            bullet.style.transform = 'translate(-50%, -50%) rotate(0deg)'; // изначально без поворота
+            bullet.style.transform = 'translate(-50%, -50%) rotate(0deg)';
         });
         // Функция для установки правильного угла всем буллетам
         function setBulletsRotation(containerAngle: number) {
@@ -88,10 +88,8 @@ export default function getMainSlider(): void {
                 }
             });
         }
-        // Находим элементы для номера и суммы слайдов
         const valueEl = currentValue.querySelector('.main-slider__pagination-value') as HTMLElement | null;
         const sumEl = currentValue.querySelector('.main-slider__pagination-sum') as HTMLElement | null;
-        // Находим элементы для дат
         const captionStartEl = currentValue.querySelector('.main-slider__caption-start') as HTMLElement | null;
         const captionEndEl = currentValue.querySelector('.main-slider__caption-end') as HTMLElement | null;
 
@@ -102,7 +100,7 @@ export default function getMainSlider(): void {
             if (isNaN(from)) from = to;
             if (from === to) return;
             const step = from < to ? 1 : -1;
-            const duration = 300; // ms
+            const duration = 300;
             const totalSteps = Math.abs(to - from);
             const interval = totalSteps ? Math.max(duration / totalSteps, 20) : duration;
             let current = from;
@@ -118,7 +116,7 @@ export default function getMainSlider(): void {
             if (!swiper) return;
             if (valueEl) valueEl.textContent = String(swiper.activeIndex + 1).padStart(2, '0');
             if (sumEl) sumEl.textContent = String(swiper.slides.length).padStart(2, '0');
-            // Даты
+
             const activeSlide = swiper.slides[swiper.activeIndex] as HTMLElement;
             if (activeSlide) {
                 const yearStart = parseInt(activeSlide.getAttribute('data-year-start') || '', 10);
@@ -129,7 +127,7 @@ export default function getMainSlider(): void {
         }
         // Изначально активный
         updateActiveBullet(swiper.activeIndex);
-        setBulletsRotation(0); // выставляем правильный угол для всех буллетов при загрузке
+        setBulletsRotation(0);
         rotatePaginationTo(swiper.activeIndex);
         updateSliderNumbersAndDates();
         // При смене слайда
