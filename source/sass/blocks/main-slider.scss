@@ -112,6 +112,18 @@
 
 .main-slider__bullet {
   cursor: pointer;
+
+  &.is-active .main-slider__current,
+  &:hover .main-slider__current {
+    background-color: variables.$grey-light;
+    transform: scale(1);
+    transition: variables.$transition;
+  }
+
+  &.is-active .main-slider__pagination-label {
+    opacity: 1;
+    transition: variables.$transition;
+  }
 }
 
 .main-slider__current {
@@ -123,7 +135,9 @@
 
   border: 1px solid rgba(variables.$grey, 0.5);
   border-radius: 50%;
-  background-color: variables.$grey-light;
+  background-color: variables.$text-color;
+  transform: scale(0.11);
+  transition: variables.$transition;
 }
 
 .main-slider__pagination-label {
@@ -134,4 +148,7 @@
 
   display: block;
   @include mixin.font-pt(20px,700,1,variables.$text-color);
+
+  opacity: 0;
+  transition: variables.$transition;
 }
