@@ -39,6 +39,10 @@
 
   border-radius: 50%;
   border: 1px solid variables.$text-color;
+
+  &:hover {
+    background-color: variables.$white;
+  }
 }
 
 .main-slider__btn-prev.swiper-button-disabled,

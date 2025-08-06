@@ -14,7 +14,7 @@
 .main__min-container {
   position: relative;
   min-height: 100vh;
-  padding: 170px 0 0;
+  padding: 170px 0 50px;
 
   border-left: 1px solid rgba(variables.$text-color, 0.1);
   border-right: 1px solid rgba(variables.$text-color, 0.1);
@@ -35,6 +35,6 @@
   }
 
   @media screen and (max-width: 1920px) {
-    padding: 8.9vw 0 0;
+    padding: 8.9vw 0 50px;
   }
 }
