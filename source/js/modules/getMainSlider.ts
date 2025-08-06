@@ -73,7 +73,7 @@ export default function getMainSlider(): void {
         });
         // Функция для установки правильного угла всем буллетам
         function setBulletsRotation(containerAngle: number) {
-            bullets.forEach((bullet, i) => {
+            bullets.forEach((bullet) => {
                 bullet.style.transform = `translate(-50%, -50%) rotate(${-containerAngle}deg)`;
             });
         }

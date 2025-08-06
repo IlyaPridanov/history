@@ -24,8 +24,8 @@ export default function getSlider(): void {
                 spaceBetween: 15,
             },
             1200: {
-                slidesPerView: 3.2,
-                spaceBetween: 80,
+                slidesPerView: 3,
+                spaceBetween: 50,
             },
         };
         if (slides.length >= 2 && container) {

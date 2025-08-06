@@ -196,16 +196,22 @@ section.main-slider
   h2.h2.main-slider__caption
     span=mock[0].yearStart
     span=mock[0].yearEnd
+  .main-slider__pagination-value
+    span 06
+    |/
+    span 06
+  .main-slider__row-btn
+    button.main-slider__btn-next(type="button")
+      +svg("left",7,13)
+    button.main-slider__btn-prev(type="button")
+      +svg("right",7,13)
   .swiper-container.main-slider__swiper-container
     .swiper-wrapper.main-slider__swiper-wrapper
       each item in mock
         +card-slider(item.arr).swiper-slide.main-slider__swiper-slide(data-year-start=item.yearStart, data-year-end=item.yearEnd)
-  button.main-slider__btn-next(type="button")
-    +svg("left",7,13)
-  button.main-slider__btn-prev(type="button")
-    +svg("right",7,13)
-  .main-slider__pagination
-    each item,index in mock
-      span.main-slider__bullet
-        span.main-slider__current=index+1
-        span.main-slider__pagination-label=item.caption
+  .main-slider__block-pagination
+    .main-slider__pagination
+      each item,index in mock
+        span.main-slider__bullet
+          span.main-slider__current=index+1
+          span.main-slider__pagination-label=item.caption
