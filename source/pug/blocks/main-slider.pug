@@ -208,7 +208,7 @@ section.main-slider
   .swiper-container.main-slider__swiper-container
     .swiper-wrapper.main-slider__swiper-wrapper
       each item in mock
-        +card-slider(item.arr).swiper-slide.main-slider__swiper-slide(data-year-start=item.yearStart, data-year-end=item.yearEnd)
+        +card-slider(item).swiper-slide.main-slider__swiper-slide(data-year-start=item.yearStart, data-year-end=item.yearEnd)
   .main-slider__block-pagination
     .main-slider__pagination
       each item,index in mock

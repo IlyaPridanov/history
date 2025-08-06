@@ -5,4 +5,8 @@
   margin: 0;
 
   @include mixin.font-bebas(25px,400,1.2,variables.$blue);
+
+  @media screen and (max-width: variables.$big-mobile-width) {
+    font-size: 18px;
+  }
 }

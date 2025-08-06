@@ -17,11 +17,11 @@ export default function getSlider(): void {
         const breakpoints = {
             320: {
                 slidesPerView: 1.5,
-                spaceBetween: 7,
+                spaceBetween: 0,
             },
             768: {
                 slidesPerView: 2,
-                spaceBetween: 15,
+                spaceBetween: 25,
             },
             1024: {
                 slidesPerView: 3,

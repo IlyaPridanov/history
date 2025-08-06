@@ -13,6 +13,11 @@
 
 .main__caption {
   margin-bottom: 75px;
+
+  @media screen and (max-width: variables.$big-mobile-width) {
+    margin-bottom: 64px;
+    padding-left: 20px;
+  }
 }
 
 .main__min-container {
@@ -28,8 +33,12 @@
   }
 
   @media screen and (max-width: variables.$big-tablet-width) {
-    padding: 8.9vw 15px 50px;
+    padding: 8.9vw 20px 50px;
     border: none;
+  }
+
+  @media screen and (max-width: variables.$big-mobile-width) {
+    padding: 17.9vw 0 13px;
   }
 
   &::before {
@@ -45,5 +54,9 @@
     height: 100%;
 
     background-color: rgba(variables.$text-color, 0.1);
+
+    @media screen and (max-width: variables.$big-tablet-width) {
+      display: none;
+    }
   }
 }

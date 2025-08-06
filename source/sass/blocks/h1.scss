@@ -35,4 +35,8 @@
   @media screen and (max-width: variables.$tablet-width) {
     font-size: 36px;
   }
+
+  @media screen and (max-width: variables.$big-mobile-width) {
+    font-size: 20px;
+  }
 }

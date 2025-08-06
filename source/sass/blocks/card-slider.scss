@@ -38,3 +38,18 @@
 .card-slider__btn.js-btn-prev {
   left: -50px;
 }
+
+.card-slider__caption {
+  display: none;
+
+  @media screen and (max-width: variables.$big-mobile-width) {
+    display: block;
+    padding-bottom: 30px;
+    margin-bottom: 16px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    border-bottom: 2px solid variables.$grey-2;
+  }
+}
